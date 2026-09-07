@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #FCFBF9;
+    --card-main: #FFFFFF;
+    --border-subtle: #E8E6E1;
+    --text-primary: #111111;
+    --text-secondary: #666660;
+    --accent: #1A1A1A;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+}
+
+/* ========================================================
+   SIGNATURE MONOCHROME -> COLOUR HOVER EFFECT
+   Editorial 450ms smooth transition
+   ======================================================== */
+.mono-to-color {
+  filter: grayscale(100%) contrast(105%) brightness(96%);
+  transition: filter 480ms cubic-bezier(0.22, 1, 0.36, 1), transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: filter, transform;
+}
+
+.group:hover .mono-to-color,
+.group:focus-within .mono-to-color,
+.mono-to-color:hover,
+.mono-to-color.active-color {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+}
+
+.mono-to-color-zoom {
+  filter: grayscale(100%) contrast(105%) brightness(96%);
+  transition: filter 480ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: filter, transform;
+}
+
+.group:hover .mono-to-color-zoom,
+.mono-to-color-zoom:hover {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  transform: scale(1.03);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+/* Leaflet Map Customizations for Editorial Feel */
+.editorial-map-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111111;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  border-radius: 9999px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.editorial-map-marker:hover {
+  transform: scale(1.18);
+  background: #000000;
+  z-index: 1000 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid #e4e4e7 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: normal !important;
+}
+
+/* Subtle line pattern background */
+.bg-grid-subtle {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
