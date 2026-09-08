@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { Hotel } from '../../types';
 import { useApp } from '../../context/AppContext';
-import { MapPin, Navigation, Layers, Sparkles } from 'lucide-react';
+import { Navigation, Sparkles } from 'lucide-react';
 import L from 'leaflet';
 
 interface InteractiveMapProps {
